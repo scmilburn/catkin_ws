@@ -1,0 +1,8 @@
+prefix=/home/simon/catkin_ws/install
+
+Name: wheeled_robot_kinematics
+Description: Description of wheeled_robot_kinematics
+Version: 0.0.0
+Cflags: -I/home/simon/catkin_ws/install/include
+Libs: -L/home/simon/catkin_ws/install/lib 
+Requires: message_runtime

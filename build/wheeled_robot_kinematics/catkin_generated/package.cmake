@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "wheeled_robot_kinematics")
+set(wheeled_robot_kinematics_MAINTAINER "aecins <aecins@todo.todo>")
+set(wheeled_robot_kinematics_DEPRECATED "")
+set(wheeled_robot_kinematics_VERSION "0.0.0")
+set(wheeled_robot_kinematics_BUILD_DEPENDS "message_generation" "geometry_msgs")
+set(wheeled_robot_kinematics_RUN_DEPENDS "message_runtime" "geometry_msgs")
+set(wheeled_robot_kinematics_BUILDTOOL_DEPENDS "catkin")

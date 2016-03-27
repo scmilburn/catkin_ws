@@ -1,0 +1,8 @@
+prefix=/home/simon/catkin_ws/install
+
+Name: turtle_initials
+Description: Description of turtle_initials
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/simon/catkin_ws/install/lib 
+Requires: 
