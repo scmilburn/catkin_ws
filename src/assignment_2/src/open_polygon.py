@@ -60,10 +60,8 @@ def polygonOpen():
   sec_forward = sideLength/max_forward_vel # t=d/v
   sec_turning = radians(poly_ang)/max_turning_vel
   
-  # This line is to account for error in robot
-  # In simulation it works fine without this but in reality
-  # the robot does not always go in a straight line.
-  sec_turning = sec_turning - (sec_turning/30)
+  # Uncomment this to make work decently in real life (already works fine in simulation)
+  # sec_turning = sec_turning - (sec_turning/30)
 
   # STRAIGHT COMMAND
   move_cmd = Twist()

@@ -68,7 +68,7 @@ def polygonProp():
   
     while not rospy.is_shutdown():
         for move in range(0, numSides):     
-            rospy.loginfo("============================\nMOVE: %d"%move)
+            rospy.loginfo("[+] MOVE: %d"%move)
             try:
                 (position, orientation) = listener.lookupTransform("/odom", "/base_footprint", rospy.Time(0))
             except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
@@ -77,14 +77,14 @@ def polygonProp():
             # CALCULATING GOAL COORDINATES 
             euler = tf.transformations.euler_from_quaternion(orientation)
             theta = euler[2]
-
             r = np.array([[cos(theta), -sin(theta), 0], [sin(theta), cos(theta), 0], [0, 0, 1]])
             t = np.array([sideLength, 0, poly_ang]) 
             goal = np.dot(r, t)
-
-            rospy.loginfo("GOAL_x: %f" % goal[0])
-            rospy.loginfo("GOAL_y: %f" % goal[1])
-            rospy.loginfo("GOAL_theta: %f" % goal[2])
+            # flawed calculations after the first side :/
+            
+            # rospy.loginfo("GOAL_x: %f" % goal[0])
+            #rospy.loginfo("GOAL_y: %f" % goal[1])
+            #rospy.loginfo("GOAL_theta: %f" % goal[2])
             
             # GET initial rho VALUES AND LOOP UNTIL CONVERGES
             x = goal[0] - position[0]
@@ -96,14 +96,19 @@ def polygonProp():
 
             rospy.loginfo("FIRST RHO: %f" % p)
             rospy.loginfo("FIRST alpha %f" % a)
-            time.sleep(5)
+            #time.sleep(5)
 
             while p > .05 or a < radians(poly_ang):
                 try:
                     (position, orientation) = listener.lookupTransform("/odom", "/base_footprint", rospy.Time(0))
                 except (tf.LookupException, tf.ConnectivityException, tf.ExtrapolationException):
                     continue
+                
                 rospy.loginfo("MOVE: %d" % move)
+                rospy.loginfo("GOAL_x: %f" % goal[0])
+                rospy.loginfo("GOAL_y: %f" % goal[1])
+                rospy.loginfo("GOAL_theta: %f" % goal[2])
+                
                 rospy.loginfo("current_x: %f" % position[0]) 
                 rospy.loginfo("current_y: %f" % position[1])
                 euler_ang = tf.transformations.euler_from_quaternion(orientation)
@@ -115,8 +120,8 @@ def polygonProp():
                 p = sqrt(x**2 + y**2)
                 a = (-theta + atan2(y, x)) % (2*pi)
                 if a > pi:
-                    a = a - 2*pi
-                    
+                    a = a - 2*pi 
+
                 b = -theta - a
                 rospy.loginfo("beta: %f" % degrees(b))
                 rospy.loginfo("alpha: %f" % degrees(a))
@@ -132,6 +137,7 @@ def polygonProp():
                 move_cmd.angular.z = angular
                 pub.publish(move_cmd)
                 rate.sleep()
+
             rospy.loginfo("END OF WHILE")
         rospy.loginfo("END FOR LOOP")
         time.sleep(5)
