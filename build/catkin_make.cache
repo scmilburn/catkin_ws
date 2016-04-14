@@ -1,2 +1,2 @@
-assignment_2:turtle_initials
+turtle_initials
 -DCATKIN_DEVEL_PREFIX=/home/simon/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/simon/catkin_ws/install -G Unix Makefiles
