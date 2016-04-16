@@ -8,19 +8,25 @@ import matplotlib.patches as patches
 #-------------------------------------------------------------------------------
 # Generates a random pose in the map (in real world coordinates)
 def random_particle(the_map):
-
-  x = 0
-  y = 0
-  theta = 0
+  found = False
+  while not found:
+    x = random.uniform(0, the_map.info.width)
+    y = random.uniform(0, the_map.info.height)
+    ID = to_index(int(x), int(y), the_map.info.width)
+    if the_map.data[ID] == 0:
+        found = True
+  x = the_map.info.origin.position.x + x * the_map.info.resolution
+  y = the_map.info.origin.position.y + y * the_map.info.resolution
+  theta = random.uniform(-pi, pi)
 
   return (x, y, theta)
 
 #-------------------------------------------------------------------------------
 # Generates a new particle from an old one by adding noise to it
 def new_particle(particle, spatial_var, angle_var):
-  x     = 0
-  y     = 0
-  theta = 0
+  x = random.gauss(particle[0], spatial_var)
+  y = random.gauss(particle[1], spatial_var)
+  theta = random.gauss(particle[1], angle_var)
 
   return (x,y,theta)
     
@@ -31,7 +37,20 @@ def new_particle(particle, spatial_var, angle_var):
 def resample(particles_weighted, n_particles):
 
   particles = []
+  weight = 0
+  for p in particles_weighted:
+      weight += particle[0]
   
+  r = random.uniform(0, 1/float(n_particles))
+  w = particles_weighted[0][0]/weight
+  i = 0
+  for p in range(n_particles):
+    U = r + float(p)/float(n_particles)
+    while U > w:
+        i += 1
+        w += particles_weighted[i][0]/weight
+    particle = particles_weighted[i][1]
+    particles.append(new_particle(particle, 0.05, pi/8))
   return particles      
 
 # ----------------------------------------------------------------------------
