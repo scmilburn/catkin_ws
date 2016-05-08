@@ -218,19 +218,6 @@ clean_test_results/fast:
 .PHONY : clean_test_results/fast
 
 #=============================================================================
-# Target rules for targets named clean_test_results_localization
-
-# Build rule for target.
-clean_test_results_localization: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results_localization
-.PHONY : clean_test_results_localization
-
-# fast build rule for target.
-clean_test_results_localization/fast:
-	$(MAKE) -f CMakeFiles/clean_test_results_localization.dir/build.make CMakeFiles/clean_test_results_localization.dir/build
-.PHONY : clean_test_results_localization/fast
-
-#=============================================================================
 # Target rules for targets named download_extra_data
 
 # Build rule for target.
@@ -450,7 +437,6 @@ help:
 	@echo "... ROSBUILD_gensrv_lisp"
 	@echo "... _catkin_empty_exported_target"
 	@echo "... clean_test_results"
-	@echo "... clean_test_results_localization"
 	@echo "... download_extra_data"
 	@echo "... doxygen"
 	@echo "... edit_cache"

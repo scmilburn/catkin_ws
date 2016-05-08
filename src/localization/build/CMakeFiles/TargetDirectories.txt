@@ -4,7 +4,6 @@
 /home/simon/catkin_ws/src/localization/build/CMakeFiles/ROSBUILD_gensrv_lisp.dir
 /home/simon/catkin_ws/src/localization/build/CMakeFiles/_catkin_empty_exported_target.dir
 /home/simon/catkin_ws/src/localization/build/CMakeFiles/clean_test_results.dir
-/home/simon/catkin_ws/src/localization/build/CMakeFiles/clean_test_results_localization.dir
 /home/simon/catkin_ws/src/localization/build/CMakeFiles/download_extra_data.dir
 /home/simon/catkin_ws/src/localization/build/CMakeFiles/doxygen.dir
 /home/simon/catkin_ws/src/localization/build/gtest/CMakeFiles/gtest.dir

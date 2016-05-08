@@ -8,10 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/simon/catkin_ws/src/localization/build/devel:$CMAKE_PREFIX_PATH"
-export CPATH="/home/simon/catkin_ws/src/localization/build/devel/include:$CPATH"
-export LD_LIBRARY_PATH="/home/simon/catkin_ws/src/localization/build/devel/lib:/home/simon/catkin_ws/src/localization/build/devel/lib/x86_64-linux-gnu:/home/simon/catkin_ws/devel/lib/x86_64-linux-gnu:/opt/ros/indigo/lib/x86_64-linux-gnu:/home/simon/catkin_ws/devel/lib:/opt/ros/indigo/lib:/opt/ros/indigo/lib/python2.7/dist-packages:/opt/ros/indigo/lib/python2.7/dist-packages"
-export PATH="/home/simon/catkin_ws/src/localization/build/devel/bin:$PATH"
-export PKG_CONFIG_PATH="/home/simon/catkin_ws/src/localization/build/devel/lib/pkgconfig:/home/simon/catkin_ws/src/localization/build/devel/lib/x86_64-linux-gnu/pkgconfig:/home/simon/catkin_ws/devel/lib/x86_64-linux-gnu/pkgconfig:/opt/ros/indigo/lib/x86_64-linux-gnu/pkgconfig:/home/simon/catkin_ws/devel/lib/pkgconfig:/opt/ros/indigo/lib/pkgconfig"
-export PYTHONPATH="/home/simon/catkin_ws/src/localization/build/devel/lib/python2.7/dist-packages:$PYTHONPATH"
+export LD_LIBRARY_PATH="/home/simon/catkin_ws/devel/lib:/opt/ros/indigo/lib:/opt/ros/indigo/lib/python2.7/dist-packages:/opt/ros/indigo/lib/python2.7/dist-packages"
+export PATH="/opt/ros/indigo/bin:/home/simon/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+export PKG_CONFIG_PATH="/home/simon/catkin_ws/devel/lib/pkgconfig:/opt/ros/indigo/lib/pkgconfig"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/simon/catkin_ws/src/localization/build/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/simon/catkin_ws/src/localization:$ROS_PACKAGE_PATH"
