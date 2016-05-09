@@ -7,7 +7,7 @@ import actionlib
 from tf import TransformListener
 from tf.transformations import quaternion_from_euler
 from tf.transformations import euler_from_quaternion
-from tf.transformations import quaternion_multiply
+from tf.transformations import quaternion_multiplyn
 from tf.transformations import quaternion_inverse
 from geometry_msgs.msg import Twist
 import math
@@ -18,13 +18,11 @@ import threading
 import copy
 import rospkg
 
-
 #-------------------------------------------------------------------------------
 # Object search class
 #-------------------------------------------------------------------------------
 class ObjectSearch:
   def __init__(self):
-
     # Navigation
     self.goalStatesText = [
                            'PENDING',
@@ -49,7 +47,7 @@ class ObjectSearch:
     self.trainImageDir = rospack.get_path('assignment_5_completed') + "/images/train"
     self.trainImageNames = ['cereal', 'soup', 'pringles', 'kinect2', 'milk', 'straws', 'dressing']
 
-    # Initialize node
+    # init node
     rospy.init_node('object_search')
 
     # Image subscriber and cv_bridge
@@ -59,9 +57,9 @@ class ObjectSearch:
 
     # Generate goal poses
     self.goalPoses = []
-    self.goalPoses.append((  4.0,  2.6,  1.0))
-    self.goalPoses.append((  2.0,  2.4, -3.0))
-    self.goalPoses.append((  4.5,  0.7, -0.8))    
+    self.goalPoses.append(( 4.0, 2.6, 1.0))
+    self.goalPoses.append(( 2.0, 2.4,-3.0))
+    self.goalPoses.append(( 4.5, 0.7,-0.8))    
 
   #-------------------------------------------------------------------------------
   # Draw matches between a training image and test image
@@ -158,8 +156,11 @@ class ObjectSearch:
   #-----------------------------------------------------------------------------
   # Run!
   def run(self):
+    this.drawMatches(self, img1, kp1, img2, kp2, matches)
+    this.imageCallback(data)
+    this.capture_image
 
-    # Just sit there doing nothing
+
     while True:
       rospy.sleep(0.1)
 
