@@ -57,11 +57,6 @@ class ObjectSearch:
 
     # Generate goal poses
     self.goalPoses = []
-<<<<<<< HEAD
-    self.goalPoses.append(( 4.0, 2.6, 1.0))
-    self.goalPoses.append(( 2.0, 2.4,-3.0))
-    self.goalPoses.append(( 4.5, 0.7,-0.8))    
-=======
     self.goalPoses.append((  4.0,  2.6,  1.0))
     self.goalPoses.append((  2.0,  2.4, -3.0))
     self.goalPoses.append((  4.5,  0.7, -0.8))    
@@ -79,7 +74,6 @@ class ObjectSearch:
     
     #for setting up goal things:
     self.goal = MoveBaseGoal()
->>>>>>> 36215f2a4987863789d3160f618cabf0be1dc464
 
   #-------------------------------------------------------------------------------
   # Draw matches between a training image and test image
